@@ -1,0 +1,76 @@
+﻿@model Library.Models.Book
+
+@{
+    ViewData["Title"] = "Izbriši";
+}
+
+<h1>Izbriši</h1>
+
+<div>
+    <h4>
+        @Html.DisplayFor(model => model.Title)
+    </h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LiteraryType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LiteraryType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BookLocation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BookLocation)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BookCollection)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BookCollection)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Thumb)
+        </dt>
+        <dd class = "col-sm-10">
+            <img src="@ViewBag.ImgSrc" width="50"/>
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DateInserted)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateInserted)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="BookID" />
+        <input type="submit" value="Izbriši" class="btn btn-danger" /> |
+        <a asp-action="Index">Nazaj na seznam knjig</a>
+    </form>
+</div>

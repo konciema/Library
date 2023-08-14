@@ -1,0 +1,39 @@
+﻿@model Library.Models.Book
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Uredi</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <input type="hidden" asp-for="BookID" />
+            <input type="hidden" asp-for="DateInserted" />
+            @{
+                await Html.RenderPartialAsync("_FormPartialView");
+            }
+            <div class="form-group">
+                <br />
+                <img src="@ViewBag.ImgSrc" class="w-75" width="25" />
+                <br />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Nazaj na seznam kjnig</a> |
+    <a asp-action="Details" asp-route-id="@Model.BookID">Podrobnosti</a> |
+    <a asp-action="Delete" asp-route-id="@Model.BookID" method="post" >Izbriši</a>
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,32 @@
+﻿@model List<Library.Models.BookHome>
+@{
+    ViewData["Title"] = "Domov";
+}
+<div><br /></div>
+
+
+
+<div class="row justify-content-center">
+    @foreach (var book in Model)
+    {
+        @if (book.Photo != null && book.Photo.Length > 0)
+        {
+            var base64 = Convert.ToBase64String(book.Photo);
+            string imgSrc = $"data:image/gif;base64,{base64}";
+
+            <div class="card border-light mb-3 justify-content-center" style="max-width: 20rem; margin:10px;">
+                <div class="card-img-top" style="margin:3px; max-height:150px; display: flex; justify-content: center;">
+                    <img src="@imgSrc" alt="/" style="max-width: 100%; max-height: 100%;" />
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-secondary">@book.Title</h5>
+                    <p></p>
+                    <h6 class="card-subtitle">@book.FirstName @book.LastName</h6>
+                    <br>
+                    <a asp-controller="Books" asp-action="Details" class="btn btn-outline-primary" asp-route-id="@book.BookID">Podrobnosti</a>
+                </div>
+            </div>
+
+        }
+    }
+</div>

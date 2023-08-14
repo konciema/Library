@@ -1,0 +1,50 @@
+﻿@model Library.Models.Book
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="form-group">
+    <label asp-for="FirstName" class="control-label"></label>
+    <input asp-for="FirstName" class="form-control" />
+</div>
+<div class="form-group">
+    <label asp-for="LastName" class="control-label"></label>
+    <input asp-for="LastName" class="form-control" />
+</div>
+<div class="form-group">
+    <label asp-for="Title" class="control-label"></label>
+    <input asp-for="Title" class="form-control" />
+    <span asp-validation-for="Title" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="LiteraryType" class="control-label"></label>
+    <input asp-for="LiteraryType" class="form-control" />
+</div>
+<div class="form-group">
+    <label asp-for="BookLocation" class="control-label"></label>
+    <input asp-for="BookLocation" class="form-control" />
+</div>
+<div class="form-group">
+    <label asp-for="Content" class="control-label"></label>
+    <input asp-for="Content" class="form-control" />
+</div>
+<div class="form-group">
+    <label asp-for="BookCollection" class="control-label"></label>
+    <input asp-for="BookCollection" class="form-control" />
+</div>
+<div class="form-group">
+    <label asp-for="Photo" class="control-label"></label>
+    <input type="file" class="form-control" id="photo" name="photo" />
+</div>
+
+<script>
+    function toggleOtherInput(selectElement) {
+        var otherInput = document.getElementById("otherLocationInput");
+
+        if (selectElement.value === "drugo") {
+            otherInput.style.display = "block";
+            otherInput.setAttribute("name", selectElement.getAttribute("name")); // Set name attribute to be submitted
+        } else {
+            otherInput.style.display = "none";
+            otherInput.removeAttribute("name"); // Remove name attribute when not selected
+        }
+    }
+</script>
